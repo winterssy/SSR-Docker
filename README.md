@@ -18,8 +18,8 @@ $ sudo dpkg -i linux-image-4.*.deb
 
 - 删除旧内核(可选)
 ```
-$ sudo dpkg -l | grep linux-image 
-$ sudo apt-get purge 旧内核
+$ sudo dpkg -l | grep linux-image
+$ sudo apt-get purge -y linux-image-4.4.*
 ```
 
 - 更新 grub 系统引导文件并重启
@@ -41,15 +41,9 @@ $ sudo apt autoremove
 ```
 
 ### 开启bbr
-开机后 `uname -r` 看看是不是内核 >= 4.9  
+开机后 `uname -r` 看看是不是内核 >= 4.9
 
 执行 `lsmod | grep bbr` ，如果结果中没有 `tcp_bbr` 的话就先执行
-```
-$ sudo modprobe tcp_bbr
-$ echo "tcp_bbr" | sudo tee --append /etc/modules-load.d/modules.conf
-```
-
-执行
 ```
 $ echo "net.core.default_qdisc=fq" | sudo tee --append /etc/sysctl.conf
 $ echo "net.ipv4.tcp_congestion_control=bbr" | sudo tee --append /etc/sysctl.conf
@@ -60,10 +54,10 @@ $ echo "net.ipv4.tcp_congestion_control=bbr" | sudo tee --append /etc/sysctl.con
 $ sudo sysctl -p
 ``` 
 
-执行  
+执行
 ```
-$ sysctl net.ipv4.tcp_available_congestion_control
-$ sysctl net.ipv4.tcp_congestion_control
+$ sudo sysctl net.ipv4.tcp_available_congestion_control
+$ sudo sysctl net.ipv4.tcp_congestion_control
 ```
 如果结果都有 `bbr` ，则证明你的内核已开启 bbr  
 
