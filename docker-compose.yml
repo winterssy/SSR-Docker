@@ -1,0 +1,24 @@
+version: "3.6"
+
+services:
+  ssr:
+    image: winterssy/shadowsocksr:latest
+    container_name: ssr
+    ports:
+      - 8989:8989
+      - 8686:8686
+    networks:
+      - ssr
+    volumes:
+      - "./etc/:/ssr/"
+    restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200m"
+        max-file: "10"
+
+networks:
+  ssr:
+    name: ssr
+    driver: bridge
