@@ -10,7 +10,7 @@ services:
     networks:
       - ssr
     volumes:
-      - "./etc/:/ssr/"
+      - "./etc/shadowsocks.json:/ssr/shadowsocks.json:ro"
     restart: unless-stopped
     logging:
       driver: "json-file"
