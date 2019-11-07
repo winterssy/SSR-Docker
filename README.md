@@ -1,6 +1,8 @@
 # SSR-Docker
 使用Docker部署ShadowsocksR服务端
 
+[![Actions Status](https://github.com/winterssy/SSR-Docker/workflows/Publish%20Docker/badge.svg)](https://github.com/winterssy/SSR-Docker/actions)
+
 ## [BBR加速](https://github.com/iMeiji/shadowsocks_install/wiki)
 BBR 目的是要尽量跑满带宽, 并且尽量不要有排队的情况，效果并不比速锐差。Linux kernel 4.9+已支持tcp_bbr，下面简单讲述基于KVM架构VPS如何开启。
 
