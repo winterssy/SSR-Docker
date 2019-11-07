@@ -10,7 +10,7 @@ services:
     networks:
       - ssr
     volumes:
-      - "./etc/config.json:/ssr/config.json:ro"
+      - "./etc/config.json:/app/config.json:ro"
     restart: unless-stopped
     logging:
       driver: "json-file"
