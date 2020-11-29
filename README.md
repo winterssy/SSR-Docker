@@ -106,7 +106,7 @@ $ docker-compose restart ssr
 $ docker-compose logs -f ssr
 ```
 ## ShadowsocksR节点配置
-参考 https://github.com/Ssrbackup/shadowsocks-rss/wiki/config.json
+参考 https://github.com/iMeiji/shadowsocks_install/blob/master/shadowsocksR-wiki/config.json.md
 
 的说明修改 `etc/config.json` ，同步更新 `docker-compose.yml` 中的端口映射，然后重新部署容器，命令如下：
 ```
